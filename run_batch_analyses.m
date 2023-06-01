@@ -7,7 +7,7 @@ clc;
 
 run_cell_FIDIC = 0;         
 run_cell_vel = 0;
-run_cell_kym = 1;
+run_cell_kym = 0;
 run_cell_compute_traj = 0;
 run_cell_plot_traj = 0;
 run_cell_MSD = 0;

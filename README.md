@@ -1,8 +1,8 @@
 # Collective Migration
 
-* Written by Frank Charbonier, Chaudhuri Lab, Stanford University, 2023*
+*Written by Frank Charbonier, Chaudhuri Lab, Stanford University, 2023*
 
-* Adapted from work by Jacob Notbohm and Christian Franck, University of Wisconsin-Madison*
+*Adapted from work by Jacob Notbohm and Christian Franck, University of Wisconsin-Madison*
 
 Analysis code for research on collective cell migration
 

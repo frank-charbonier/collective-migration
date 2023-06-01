@@ -21,15 +21,15 @@ https://github.com/takuno7/saveastiff
 
 ## Files needed
 
-beads.tif
+*beads.tif*
 
-cells.tif
+*cells.tif*
 
-domain.tif
+*domain.tif* binary mask of monolayer boundary generated from segmentation(background = black, foreground/cells = white)
 
-ExperimentalSettings.txt
+*ExperimentalSettings.txt*
 
-time_points_start_end.txt
+*time_points_start_end.txt*
 
 
 ## Additional Notes

@@ -17,6 +17,8 @@ https://github.com/frank-charbonier/Cell-Traction-Stress
 
 https://github.com/takuno7/saveastiff
 
+https://github.com/tamaskis/load_config-MATLAB/
+
 
 
 ## Files needed
@@ -27,9 +29,11 @@ https://github.com/takuno7/saveastiff
 
 *domain.tif* binary mask of monolayer boundary generated from segmentation(background = black, foreground/cells = white)
 
-*ExperimentalSettings.txt*
+*experiment-settings-new-format.txt*
 
 *time_points_start_end.txt*
+
+
 
 
 ## Additional Notes

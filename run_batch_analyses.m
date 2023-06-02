@@ -1,9 +1,10 @@
+function run_batch_analyses()
 % Running velocity analyses as batch
 % Choose which functions to run on images in current working directory
 % Frank Charbonier, Stanford University, 2023
-clear;
+% clear;
 close all;
-clc;
+% clc;
 
 %% Load config file
 config = load_config('analysis-settings.txt');

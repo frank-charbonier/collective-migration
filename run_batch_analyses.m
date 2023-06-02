@@ -94,11 +94,13 @@ if config{'run_beads_FIDIC'}
     fname_ref = [];
     fname_multipage = 'beads.tif';
     savename = 'beads_DIC_results_w0=16.mat';
-    w0 = 16;
-    d0 = w0/4;
     inc = 1;
-    % image_seq = 2:30;
-    image_seq = [];
+    w0 = str2double(config{"w0"});
+    d0 = str2double(config{"d0"});
+    % w0 = 16;
+    % d0=4;
+    image_seq = config{"image_seq"};
+    % image_seq = [];
     run_FIDIC(fname_ref,fname_multipage,savename,w0,d0,inc,image_seq);
 end
 

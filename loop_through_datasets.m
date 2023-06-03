@@ -7,11 +7,11 @@ folderList = {folderInfo.name};
 % celldisp(folderList);
 
 for k = 1:length(folderList)
-    cd(baseFolder)
+    cd(baseFolder);
     cd(folderList{k});
     disp(pwd);
     run_batch_analyses;
     disp('Folder analysis complete');
 end
 
-
+cd(baseFolder);

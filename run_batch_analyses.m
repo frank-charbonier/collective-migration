@@ -39,7 +39,7 @@ tmax = 500;      % Pa
 %% Run FIDIC on cell image
 if config{'run_cell_FIDIC'}
 %     run_FIDIC(fname_ref,fname_multipage,savename,w0,d0,inc,image_seq);
-    run_FIDIC([],cellname,'cells_DIC_results_w0=16.mat',w0,d0,1,image_seq);
+    run_FIDIC([],cellname,'cells_DIC_results.mat',w0,d0,1,image_seq);
 end
 
 %% Compute cell velocities
@@ -109,7 +109,7 @@ end
 if config{'run_compute_tractions'}
     disp("Computing tractions")
     % run_reg_fourier_TFM(filename, savename, domainname, num_images, crop_val, correct_drift)
-    run_reg_fourier_TFM('beads_DIC_results_w0=16.mat', 'tract_results.mat', ...
+    run_reg_fourier_TFM('beads_DIC_results.mat', 'tract_results.mat', ...
         domainname, [], crop_val, correct_drift);
     disp("Computing tractions complete")
 end

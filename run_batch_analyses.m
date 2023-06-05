@@ -35,11 +35,12 @@ max_vel = 0.25;
 % Plotting limits for substrate displacements and tractions
 umax = 1;     % um
 tmax = 500;      % Pa
-
+% Set inc to 0 for cumulative; 1 for incremental comparison (used in run_FIDIC)
+inc = 1;
 %% Run FIDIC on cell image
 if config{'run_cell_FIDIC'}
 %     run_FIDIC(fname_ref,fname_multipage,savename,w0,d0,inc,image_seq);
-    run_FIDIC([],cellname,'cells_DIC_results.mat',w0,d0,1,image_seq);
+    run_FIDIC([],cellname,'cells_DIC_results.mat',w0,d0,inc,image_seq);
 end
 
 %% Compute cell velocities

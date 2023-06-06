@@ -1,4 +1,7 @@
 % Loop through datasets in directory
+clear
+close all
+clc
 
 % Get list of files and folders in current directory with 'XY' in the name
 baseFolder = pwd;

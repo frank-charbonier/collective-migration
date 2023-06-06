@@ -16,6 +16,10 @@ d0 = str2double(config{"d0"});
 % w0 = 16;
 % d0=4;
 image_seq = config{"image_seq"};
+plot_radial = config{"plot_radial"};
+time_increment = config{"time_increment"};
+min_vel = config{"min_vel"};
+max_vel = config{"max_vel"};
 
 %% USER INPUTS (not yet added to config file)
 % Frames to include for cell trajectories and MSD (0 to 1)
@@ -29,9 +33,6 @@ tract_dirname = 'displ_traction'; % Name of a folder to put traction plots in
 crop_val = 10;
 % Set to zero to skip drift-correction (if previously applied before FIDIC)
 correct_drift = 0;
-%Plotting limits for cell velocity plots and kymographs
-min_vel = -0.25;
-max_vel = 0.25;
 % Plotting limits for substrate displacements and tractions
 umax = 1;     % um
 tmax = 500;      % Pa
@@ -46,7 +47,7 @@ end
 %% Compute cell velocities
 if config{'run_cell_vel'}
     disp("Computing cell velocities")
-    plot_cellvel(max_vel=max_vel);
+    plot_cellvel(cellname, domainname, time_increment, max_vel, plot_radial);
 %     TO ADD: separate functions for computing and plotting the processed velocity data
 %       TO ADD: input min_vel and max_vel for plotting
     disp("Computing cell velocities finished")
@@ -56,7 +57,7 @@ end
 if config{'run_cell_kym'}
     disp("Plotting kymographs of cell velocities")
     % plot_cell_vel_kymograph(processed_vel_data, min_vel, max_vel)
-    plot_cell_vel_kymograph('cellvel_processed.mat', min_vel, max_vel);
+    plot_cell_vel_kymograph('cellvel_processed.mat', min_vel, max_vel, 'Kymographs', plot_radial);
 end
 
 %% Compute cell trajectories

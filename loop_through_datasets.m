@@ -23,3 +23,4 @@ for k = 1:length(folderList)
 end
 
 cd(baseFolder);
+clear

@@ -1,25 +1,34 @@
 function run_batch_analyses()
 % Running velocity analyses as batch
 % Choose which functions to run on images in current working directory
+% Requires 'analysis-settings.txt' and 'experiment-settings' configuration files to set parameters
+% and specify which analyses to perform
+%
+% Also requires load_config.m from Tamas Kis (https://github.com/tamaskis/load_config-MATLAB/)
+% 
 % Frank Charbonier, Stanford University, 2023
+
 % clear;
 close all;
 % clc;
 
-%% Load config file
+%% Load analysis settings
 config = load_config('analysis-settings.txt');
-
 cellname = config{'cellname'};
 domainname = config{'domainname'};
-w0 = str2double(config{"w0"});
-d0 = str2double(config{"d0"});
-% w0 = 16;
-% d0=4;
+DICname = config{'DICname'};
+w0 = config{"w0"};
+d0 = config{"d0"};
+inc = config{"inc"};
 image_seq = config{"image_seq"};
-plot_radial = config{"plot_radial"};
 time_increment = config{"time_increment"};
 min_vel = config{"min_vel"};
 max_vel = config{"max_vel"};
+
+%% Load experimental settings
+exp_config = load_config('experiment-settings');
+pix_size = exp_config{'pixel size [um]'};
+plot_radial = exp_config{"plot_radial"};
 
 %% USER INPUTS (not yet added to config file)
 % Frames to include for cell trajectories and MSD (0 to 1)
@@ -36,18 +45,18 @@ correct_drift = 0;
 % Plotting limits for substrate displacements and tractions
 umax = 1;     % um
 tmax = 500;      % Pa
-% Set inc to 0 for cumulative; 1 for incremental comparison (used in run_FIDIC)
-inc = 1;
 %% Run FIDIC on cell image
 if config{'run_cell_FIDIC'}
-%     run_FIDIC(fname_ref,fname_multipage,savename,w0,d0,inc,image_seq);
-    run_FIDIC([],cellname,'cells_DIC_results.mat',w0,d0,inc,image_seq);
+    disp('Running FIDIC')
+    % run_FIDIC(fname_ref,fname_multipage,savename,w0,d0,inc,image_seq);
+    run_FIDIC([],cellname,DICname,w0,d0,inc,image_seq);
 end
 
 %% Compute cell velocities
 if config{'run_cell_vel'}
     disp("Computing cell velocities")
-    plot_cellvel(cellname, domainname, time_increment, max_vel, plot_radial);
+    % plot_cellvel(cellname, domainname, DICname, pix_size, time_increment, max_vel, plot_radial)
+    plot_cellvel(cellname, domainname, DICname, pix_size, time_increment, max_vel, plot_radial);
 %     TO ADD: separate functions for computing and plotting the processed velocity data
 %       TO ADD: input min_vel and max_vel for plotting
     disp("Computing cell velocities finished")

@@ -22,7 +22,6 @@ w0 = config{"w0"};
 d0 = config{"d0"};
 inc = config{"inc"};
 image_seq = config{"image_seq"};
-time_increment = config{"time_increment"};
 min_vel = config{"min_vel"};
 max_vel = config{"max_vel"};
 
@@ -30,6 +29,7 @@ max_vel = config{"max_vel"};
 exp_config = load_config('experiment-settings');
 pix_size = exp_config{'pixel size [um]'};
 plot_radial = exp_config{"plot_radial"};
+time_increment = exp_config{"time increment [min]"};
 
 %% USER INPUTS (not yet added to config file)
 % Frames to include for cell trajectories and MSD (0 to 1)
@@ -66,11 +66,19 @@ end
 %% Plot cell velocities
 if config{'run_plot_cell_vel'}
     disp("Plotting cell velocities")
-    % plot_cellvel(cellname, domainname, DICname, pix_size, time_increment, max_vel, plot_radial)
-    plot_cellvel(cellname, cellvel_savename, pix_size, max_vel, plot_radial);
+    % plot_cellvel(cellname, domainname, DICname, pix_size, time_increment, min_vel, max_vel, plot_radial)
+    plot_cellvel(cellname, cellvel_savename, pix_size, min_vel, max_vel, plot_radial);
 %     TO ADD: separate functions for computing and plotting the processed velocity data
 %       TO ADD: input min_vel and max_vel for plotting
     disp("Plotting cell velocities finished")
+end
+
+%% Plot cell velocity summary statistics
+if config{'run_plot_cell_vel_summary'}
+    disp("Plotting cell velocity summary statistics")
+    % function plot_cellvel_summary(cellvel_savename, pix_size, min_vel, max_vel, plot_radial)
+    plot_cellvel_summary(cellvel_savename, pix_size, min_vel, max_vel, plot_radial)
+    disp("Plotting cell velocity summary statistics finished")
 end
 
 %% Plot kymographs of cell velocity
@@ -117,13 +125,6 @@ if config{'run_beads_FIDIC'}
     fname_ref = [];
     fname_multipage = 'beads.tif';
     savename = 'beads_DIC_results_w0=16.mat';
-    inc = 1;
-    w0 = str2double(config{"w0"});
-    d0 = str2double(config{"d0"});
-    % w0 = 16;
-    % d0=4;
-    image_seq = config{"image_seq"};
-    % image_seq = [];
     run_FIDIC(fname_ref,fname_multipage,savename,w0,d0,inc,image_seq);
 end
 

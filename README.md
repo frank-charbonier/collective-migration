@@ -29,11 +29,14 @@ https://github.com/tamaskis/load_config-MATLAB/
 
 *domain.tif* binary mask of monolayer boundary generated from segmentation(background = black, foreground/cells = white)
 
-*experiment-settings-new-format.txt*
+*experiment-settings.txt* see example in root folder
 
-*time_points_start_end.txt*
+*analysis-settings.txt* see example in root folder
 
 
+## Files to run
+
+*loop_through_datasets.m* Use this to run batch analyses on multiple datsets within current working directory
 
 
 ## Additional Notes

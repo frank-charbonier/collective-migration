@@ -17,6 +17,7 @@ config = load_config('analysis-settings.txt');
 cellname = config{'cellname'};
 domainname = config{'domainname'};
 DICname = config{'DICname'};
+cellvel_savename = config{'cellvel_savename'};
 w0 = config{"w0"};
 d0 = config{"d0"};
 inc = config{"inc"};
@@ -53,13 +54,23 @@ if config{'run_cell_FIDIC'}
 end
 
 %% Compute cell velocities
-if config{'run_cell_vel'}
+if config{'run_compute_cell_vel'}
     disp("Computing cell velocities")
-    % plot_cellvel(cellname, domainname, DICname, pix_size, time_increment, max_vel, plot_radial)
-    plot_cellvel(cellname, domainname, DICname, pix_size, time_increment, max_vel, plot_radial);
+    % compute_cellvel(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial)
+    compute_cellvel(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial)
 %     TO ADD: separate functions for computing and plotting the processed velocity data
 %       TO ADD: input min_vel and max_vel for plotting
     disp("Computing cell velocities finished")
+end
+
+%% Plot cell velocities
+if config{'run_plot_cell_vel'}
+    disp("Plotting cell velocities")
+    % plot_cellvel(cellname, domainname, DICname, pix_size, time_increment, max_vel, plot_radial)
+    plot_cellvel(cellname, domainname, cellvel_savename, pix_size, time_increment, max_vel, plot_radial);
+%     TO ADD: separate functions for computing and plotting the processed velocity data
+%       TO ADD: input min_vel and max_vel for plotting
+    disp("Plotting cell velocities finished")
 end
 
 %% Plot kymographs of cell velocity

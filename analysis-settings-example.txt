@@ -1,0 +1,42 @@
+# Choose which functions to run on images in current working directory 
+run_cell_FIDIC: [0]
+run_compute_cell_vel: [0]
+run_plot_cell_vel: [1]
+run_cell_kym: [0]
+run_cell_compute_traj: [0]
+run_cell_plot_traj: [0]
+run_cell_MSD: [0]
+run_cell_vel_corr: [0]
+run_beads_FIDIC: [0]
+run_compute_tractions: [0]
+run_plot_tractions: [0]
+
+# Input image info
+cellname: cells.tif
+domainname: domain.tif
+cellvel_savename: cellvel_processed.mat
+
+# Output savenames
+DICname: cells_DIC_results.mat
+
+# FIDIC settings
+# w0:  target subset size (px)
+# d0:  subset spacing (px)
+# inc: set to 0 for cumulative; 1 for incremental comparison
+w0: [16]
+d0: [4]
+inc: [1]
+
+# Images to run
+# Leave blank to run all images in stack
+image_seq:
+
+# Previously time_points_start_end.txt
+time_points_start_end: 1, nan
+
+# Time increment (min)
+time_increment: [10]
+
+# Cell velocity plotting limits
+min_vel: [-0.25]
+max_vel: [0.5]

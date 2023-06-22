@@ -67,7 +67,7 @@ end
 if config{'run_plot_cell_vel'}
     disp("Plotting cell velocities")
     % plot_cellvel(cellname, domainname, DICname, pix_size, time_increment, max_vel, plot_radial)
-    plot_cellvel(cellname, domainname, cellvel_savename, pix_size, time_increment, max_vel, plot_radial);
+    plot_cellvel(cellname, cellvel_savename, pix_size, max_vel, plot_radial);
 %     TO ADD: separate functions for computing and plotting the processed velocity data
 %       TO ADD: input min_vel and max_vel for plotting
     disp("Plotting cell velocities finished")

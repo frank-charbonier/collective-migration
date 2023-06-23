@@ -3,6 +3,10 @@ time increment [min]: [10]
 
 # Assay format: set to 0 for slit/rectangular, set to 1 for radial
 plot_radial: [1]
+# isiland used in compute_cell_trajectories.m
+# Code will set origin to be center of island if set to 1
+# Alternative is edge geometry (migrating from one side of image)
+isisland: [1]
 
 substrate elastic modulus [Pa]: [15e3]
 substrate poisson ratio: [0.3]

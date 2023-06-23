@@ -1,7 +1,13 @@
-# Choose which functions to run on images in current working directory 
+## CHOOSE ANALYSES TO RUN
+# Set to [1] to run function in current working directory 
+# Set to [0] to skip function
+# Values without brackets will be read as strings
+# Blank values will be read as an empty list []
+
 run_cell_FIDIC: [0]
-run_compute_cell_vel: [0]
+run_compute_cell_vel: [1]
 run_plot_cell_vel: [1]
+run_plot_cell_vel_summary: [0]
 run_cell_kym: [0]
 run_cell_compute_traj: [0]
 run_cell_plot_traj: [0]
@@ -11,32 +17,66 @@ run_beads_FIDIC: [0]
 run_compute_tractions: [0]
 run_plot_tractions: [0]
 
-# Input image info
+
+## INPUT/OUTPUT FILENAMES
+# cellname: multipage tif containing cell images to correlate
+# domainname: binary mask of cell region. Leave blank if no domain
+# beadname: multipage tif containing bead images to correlate
+
 cellname: cells.tif
 domainname: domain.tif
-cellvel_savename: cellvel_processed.mat
+beadname: beads.tif
 
-# Output savenames
+## OUTPUT FILENAMES
+
 DICname: cells_DIC_results.mat
+beadDICname: beads_DIC_results.mat
+cellvel_savename: cellvel_processed.mat
+trajname: cell_trajectories_tstart_end.mat
 
-# FIDIC settings
+## FIDIC SETTINGS
 # w0:  target subset size (px)
-# d0:  subset spacing (px)
+# Note: smaller subset size is susceptible to larger noise.
+# d0:  output subset spacing (px)
+# Typically set d0 = w0/4
 # inc: set to 0 for cumulative; 1 for incremental comparison
+# image_seq: images to correlate. Leave blank to run all images in stack
+
 w0: [16]
 d0: [4]
 inc: [1]
-
-# Images to run
-# Leave blank to run all images in stack
 image_seq:
 
-# Previously time_points_start_end.txt
-time_points_start_end: 1, nan
-
-# Time increment (min)
-time_increment: [10]
-
+## CELL VELOCITY PLOTTING
 # Cell velocity plotting limits
-min_vel: [-0.25]
+min_vel: [-0.5]
 max_vel: [0.5]
+
+## CELL TRAJECTORIES AND MSD SETTINGS
+# Timepoints to include for compute_cell_trajectories.m
+tstart:
+tend:
+# fd: factor by which to downsample data (positive integer)
+# Final number of grid points should match number of cells.
+fd: [2]
+# thr: threshold to reject spurious displacement data. Any incremental displacement data greater 
+# than this value is set to nan. Use a large value to avoid thresholding
+# Units are um
+thr: [15]
+# Timepoints to include for MSD (0 to 1)
+# Set as fraction of total number of timepoints (0 is first timepoint, 1 is last)
+nstart: [0]
+nend: [1]
+
+## SUBSTRATE TRACTION SETTINGS
+# tract_dirname: Name of a folder to put traction plots in
+# crop_val: how much to crop substrate displacement data (default is 10)
+# umax (um) and tmax (Pa): plotting limits for substrate displacements and tractions
+tract_dirname: displ_traction
+crop_val: 10
+umax: 1
+tmax: 500
+# IMPORTANT - correct_drift: Set to zero to skip drift-correction (if previously applied before FIDIC)
+correct_drift: 1
+
+

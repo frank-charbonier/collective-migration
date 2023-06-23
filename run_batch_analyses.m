@@ -1,11 +1,9 @@
-function run_batch_analyses()
+function run_batch_analyses(settings_savename)
 % Running velocity analyses as batch
 % Choose which functions to run on images in current working directory
 % Requires 'analysis-settings.txt' and 'experiment-settings' configuration files to set parameters
 % and specify which analyses to perform
 %
-% Also requires load_config.m from Tamas Kis (https://github.com/tamaskis/load_config-MATLAB/)
-% 
 % Frank Charbonier, Stanford University, 2023
 
 % clear;
@@ -13,9 +11,15 @@ close all;
 % clc;
 
 %% LOAD SETTINGS
-settings_mat_file = 'config_settings.mat';
-read_settings(settings_mat_file);
-load(settings_mat_file);
+% If analysis/experiment settings have not been passed from the outer folder,
+% load settings for the invidual dataset
+if ~exist(settings_savename)
+    settings_savename = 'config_settings.mat';
+    read_settings(settings_savename);
+    load(settings_savename);
+else
+    load(settings_savename);
+end
 
 %% Run FIDIC on cell image
 if run_cell_FIDIC
@@ -104,7 +108,6 @@ if run_compute_tractions
 end
 
 %% Plot tractions
-    
 if run_plot_tractions
     disp("Plotting tractions")
 %     plot_displ_tractions(cellname, filename, domainname, dirname, savenameheader, umax, tmax, ...

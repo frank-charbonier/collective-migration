@@ -42,14 +42,14 @@ plot(v_rms);
 ylabel('v_{RMS}');
 xlabel('Time')
 print('-dpng','-r300',savename);
-% Add labels
 
-    % 
-    % hf = make_fig([0.2 0.2 2 1.4]);
-    % set(hf,'DefaultAxesPosition',[0.03 0.05 .95 .89]);
-    %  set(gcf,'PaperPositionMode','auto','InvertHardCopy','off');
-    % print('-dpng','-r300',[savenameheader,num2str(k,'%0.3d'),'-',num2str(k+1,'%0.3d')]);
-    % 
-    % close(hf);
+if (plot_radial==1)
+    % writematrix(v_rms,'cellvel_summary.txt');
+    save('cellvel_summary.mat', 'v_rms');
+else
+    % writematrix(v_rms,'cellvel_summary.txt');
+    save('cellvel_summary.mat', 'v_rms');
+end
+
 
 end

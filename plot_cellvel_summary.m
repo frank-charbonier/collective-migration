@@ -1,4 +1,4 @@
-function plot_cellvel_summary(cellvel_savename, pix_size, min_vel, max_vel, plot_radial)
+function plot_cellvel_summary(cellvel_savename, plot_radial)
 % PLOT_CELLVEL_SUMMARY Plot cell velocity summary statistics
 %
 % First run compute_cellvel.m, then use this for plotting
@@ -37,6 +37,7 @@ for k=1:K
 end
 
 % Plot and save
+set(0,'DefaultFigureVisible','off')
 plot(v_rms);
 % plot(v_rms, '.r');
 ylabel('v_{RMS}');
@@ -51,5 +52,6 @@ else
     save('cellvel_summary.mat', 'v_rms');
 end
 
+close all
 
 end

@@ -1,7 +1,8 @@
-function read_settings(settings_mat_file)
+function read_settings(settings_savename)
     %LOAD_SETTINGS 
     %   Later fix this to read in settings from any arbitray text file
     %   Loop over all keys in the dictionary without having to specify explicitly here
+    %   Requires load_config.m from Tamas Kis (https://github.com/tamaskis/load_config-MATLAB/)
 
 %% Load analysis settings
 analysis_config = load_config('analysis-settings.txt');
@@ -52,6 +53,6 @@ plot_radial = exp_config{"plot_radial"};
 time_increment = exp_config{"time increment [min]"};
 
 %% Save all settings to mat file
-save(settings_mat_file);
+save(settings_savename);
 end
 

@@ -8,19 +8,34 @@ clear
 close all
 % clc
 
+%% LOCATE DATASETS TO ANALYZE
 % Get list of files and folders in current directory with 'XY' in the name
 baseFolder = pwd;
 folderInfo = dir('*XY*');
 folderList = {folderInfo.name};
 % celldisp(folderList);
 
+%% LOAD SETTINGS
+settings_savename = 'config_settings.mat';
+read_settings(settings_savename);
+load(settings_savename);
+
+%% LOOP THROUGH DATASETS 
 for k = 1:length(folderList)
     cd(baseFolder);
     cd(folderList{k});
+    disp("Analyzing folder: ")
     disp(pwd);
-    run_batch_analyses;
+    if exist(settings_savename)
+        delete (settings_savename)
+    end
+    copyfile(fullfile(baseFolder,settings_savename));
+    run_batch_analyses(settings_savename);
     disp('Folder analysis complete');
 end
 
+% Return to base folder
+% In the future, use filepaths rather than moving directories
 cd(baseFolder);
-clear
+
+% clear

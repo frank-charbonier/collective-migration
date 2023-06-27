@@ -23,11 +23,11 @@ https://github.com/tamaskis/load_config-MATLAB/
 
 ## Files needed
 
-*beads.tif*
-
-*cells.tif*
+*cells.tif*: multipage TIFF stack with cells (i.e. phase contrast images) to perform digital image correlation on
 
 *domain.tif*: binary mask of monolayer boundary generated from segmentation(background = black, foreground/cells = white)
+
+*beads.tif*: 
 
 *experiment-settings.txt*: see example in root folder
 
@@ -42,7 +42,6 @@ https://github.com/tamaskis/load_config-MATLAB/
 ## Additional Notes
 
 It is a good idea to sanity-check the displacements produced after running FIDIC on your images (i.e., look at the cell velocities and the actual cell images to see if they make sense).
-
 
 
 

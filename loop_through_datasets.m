@@ -38,4 +38,4 @@ end
 % In the future, use filepaths rather than moving directories
 cd(baseFolder);
 
-% clear
+clear

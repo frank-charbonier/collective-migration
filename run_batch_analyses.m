@@ -31,15 +31,15 @@ end
 %% Compute cell velocities
 if run_compute_cell_vel
     disp("Computing cell velocities")
-    % compute_cellvel(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial)
-    compute_cellvel(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial)
+    % compute_cellvel(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial, thr)
+    compute_cellvel(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial, thr)
     disp("Computing cell velocities finished")
 end
 
 %% Plot cell velocities
 if run_plot_cell_vel
     disp("Plotting cell velocities")
-    % plot_cellvel(cellname, domainname, DICname, pix_size, time_increment, min_vel, max_vel, plot_radial)
+    % plot_cellvel(cellname, domainname, DICname, pix_size, min_vel, max_vel, plot_radial)
     plot_cellvel(cellname, cellvel_savename, pix_size, min_vel, max_vel, plot_radial);
     disp("Plotting cell velocities finished")
 end
@@ -47,8 +47,8 @@ end
 %% Plot cell velocity summary statistics
 if run_plot_cell_vel_summary
     disp("Plotting cell velocity summary statistics")
-    % function plot_cellvel_summary(cellvel_savename, plot_radial)
-    plot_cellvel_summary(cellvel_savename, plot_radial)
+    % function plot_cellvel_summary(cellvel_savename, time_increment, plot_radial)
+    plot_cellvel_summary(cellvel_savename, time_increment, plot_radial)
     disp("Plotting cell velocity summary statistics finished")
 end
 

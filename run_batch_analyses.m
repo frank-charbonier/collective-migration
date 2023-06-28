@@ -83,7 +83,7 @@ if run_cell_plot_traj
     disp("Plotting cell trajectories")
     % plot_cell_trajectories(traj_name, nstart, nend, savename, invisible)
     % cell_traj_savename = ["Trajectories_" + num2str(nstart,2) + "_" + num2str(nend,2)];
-    plot_cell_trajectories(trajname,nstart,nend,'Trajectories_nstart_nend');
+    plot_cell_trajectories(trajname,nstart,nend,'Trajectories');
     disp("Plotting cell trajectories finished")
 end
 

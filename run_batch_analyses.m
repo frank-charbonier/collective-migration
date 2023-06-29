@@ -31,9 +31,12 @@ end
 %% Compute cell velocities
 if run_compute_cell_vel
     disp("Computing cell velocities")
+    tic
     % compute_cellvel(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial, thr)
-    compute_cellvel(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial, thr)
+    compute_cellvel(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial, thr);
+    % compute_cellvel_non_parallelized(domainname, DICname, cellvel_savename, pix_size, time_increment, plot_radial, thr);
     disp("Computing cell velocities finished")
+    toc
 end
 
 %% Plot cell velocities

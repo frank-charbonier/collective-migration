@@ -19,6 +19,7 @@ run_cell_vel_corr = analysis_config{'run_cell_vel_corr'};
 run_beads_FIDIC = analysis_config{'run_beads_FIDIC'};
 run_compute_tractions = analysis_config{'run_compute_tractions'};
 run_plot_tractions = analysis_config{'run_plot_tractions'};
+run_multifolder_compilation = analysis_config{'run_multifolder_compilation'};
 
 cellname = analysis_config{'cellname'};
 domainname = analysis_config{'domainname'};

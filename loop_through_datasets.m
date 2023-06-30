@@ -38,4 +38,19 @@ end
 % In the future, use filepaths rather than moving directories
 cd(baseFolder);
 
+% Later move this into analysis settings
+if (run_multifolder_compilation)
+    disp('Running multifolder compilation')
+    % Later add this filename to analysis file
+    RMS_cellvel_savename = 'cellvel_summary.mat';
+    experiment_summary_savename = 'exp_summary.mat';
+    exp_summary = read_vel_corr(plot_radial, RMS_cellvel_savename);
+    save(experiment_summary_savename, 'exp_summary');
+    disp('Multifolder compilation complete')
+end
+
+%% Play sound when finished running
+% load handel
+% sound(y,Fs)
+
 clear

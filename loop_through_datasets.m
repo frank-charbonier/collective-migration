@@ -6,7 +6,7 @@
 % Loop through datasets in directory
 clear
 close all
-% clc 
+% clc
 
 %% LOCATE DATASETS TO ANALYZE
 % Get list of files and folders in current directory with 'XY' in the name

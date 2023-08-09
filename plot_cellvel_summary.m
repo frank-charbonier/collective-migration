@@ -19,6 +19,9 @@ if (plot_radial==1)
     ut = 60* cellvel_data.ut;
 else
     cellvel_data = load(cellvel_savename,"u_cell", "v_cell", "x_cell", "y_cell");
+    ur = [];
+    ut = [];
+    plot_radial = plot_radial;
 end
 u_cell = 60 * cellvel_data.u_cell;
 v_cell = 60* cellvel_data.v_cell;
@@ -32,7 +35,7 @@ u_mag_rms = NaN(1,K);
 ur_rms = NaN(1,K);
 ut_rms = NaN(1,K);
 div_rms = NaN(1,K);
-
+% for k=1:K
 parfor k=1:K
     % Load cell velocity for current frame
     u_cell_k = u_cell(:,:,k);

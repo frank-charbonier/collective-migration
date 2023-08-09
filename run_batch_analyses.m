@@ -43,8 +43,8 @@ end
 if run_plot_cell_vel
     disp("Plotting cell velocities")
     tic
-    % plot_cellvel(cellname, domainname, DICname, pix_size, min_vel, max_vel, plot_radial)
-    plot_cellvel(cellname, cellvel_savename, pix_size, min_vel, max_vel, plot_radial);
+    % plot_cellvel(cellname, domainname, DICname, pix_size, min_vel, max_vel, plot_radial, qd, quiver_size)
+    plot_cellvel(cellname, cellvel_savename, pix_size, min_vel, max_vel, plot_radial, qd, quiver_size);
     disp("Plotting cell velocities finished")
     toc
 end

@@ -51,6 +51,11 @@ image_seq:
 # Cell velocity plotting limits
 min_vel: [-0.5]
 max_vel: [0.5]
+# Downsample factor for quiver plot (reduce number of quivers to see more clearly)
+Typically, the quiver plot, the number of quivers needs to be reduced so
+qd: [8]
+# Quiver size
+quiver_size: [3]
 
 ## CELL TRAJECTORIES AND MSD SETTINGS
 # Timepoints to include for compute_cell_trajectories.m

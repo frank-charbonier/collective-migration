@@ -112,7 +112,11 @@ end
 
 %% Run FIDIC for bead image
 if run_beads_FIDIC
+    disp("Running FIDIC on bead images")
+    tic
     run_FIDIC([],beadname,beadDICname,w0,d0,inc,image_seq);
+    disp("FIDIC on beads images complete")
+    toc
 end
 
 %% Compute cell-substrate tracitions using run_reg_fourier_TFM.m

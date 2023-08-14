@@ -44,8 +44,10 @@ if (run_multifolder_compilation)
     % Later add this filename to analysis file
     RMS_cellvel_savename = 'cellvel_summary.mat';
     experiment_summary_savename = 'exp_summary.mat';
-    exp_summary = read_vel_corr(plot_radial, RMS_cellvel_savename);
-    save(experiment_summary_savename, 'exp_summary');
+    compile_velocity_metrics(plot_radial, RMS_cellvel_savename, experiment_summary_savename);
+    % Old version
+    % exp_summary = read_vel_corr(plot_radial, RMS_cellvel_savename);
+    % save(experiment_summary_savename, 'exp_summary');
     disp('Multifolder compilation complete')
 end
 

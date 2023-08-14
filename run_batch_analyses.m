@@ -123,9 +123,9 @@ end
 if run_compute_tractions
     disp("Computing tractions")
     tic
-    % run_reg_fourier_TFM(filename, savename, domainname, num_images, crop_val, correct_drift)
-    run_reg_fourier_TFM('beads_DIC_results.mat', 'tract_results.mat', ...
-        domainname, [], crop_val, correct_drift);
+    % run_reg_fourier_TFM(filename, savename, domainname, num_images, crop_val, correct_drift,...
+    % pix_size, E, nu)
+    run_reg_fourier_TFM(beadDICname, 'tract_results.mat', [], [], crop_val, correct_drift, pix_size, substrate_modulus, substrate_poisson_ratio);
     disp("Computing tractions complete")
     toc
 end
@@ -134,10 +134,11 @@ end
 if run_plot_tractions
     disp("Plotting tractions")
     tic
+    invisible = 1;
 %     plot_displ_tractions(cellname, filename, domainname, dirname, savenameheader, umax, tmax, ...
 %         num_images, invisible)
-    plot_displ_tractions(cellname, 'tract_results.mat', domainname, 'displ_traction', ...
-        [tract_dirname,'/t_'], umax, tmax);
+    plot_displ_tractions(beadname, 'tract_results.mat', [], 'displ_traction', ...
+        [tract_dirname,'/t_'], umax, tmax, [], invisible, pix_size);
     disp("Plotting tractions complete")
     toc
 end

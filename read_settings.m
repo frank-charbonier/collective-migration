@@ -54,6 +54,8 @@ pix_size = exp_config{'pixel size [um]'};
 plot_radial = exp_config{"plot_radial"};
 % isisland = exp_config{"isisland"};
 time_increment = exp_config{"time increment [min]"};
+substrate_modulus = exp_config{"substrate elastic modulus [Pa]"};
+substrate_poisson_ratio = exp_config{"substrate poisson ratio"};
 
 %% Save all settings to mat file
 save(settings_savename);

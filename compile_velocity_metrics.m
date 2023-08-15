@@ -17,16 +17,16 @@ function compile_velocity_metrics(plot_radial, RMS_cellvel_savename, experiment_
     num_timepoints = length(cellvel_data.u_rms);
 
     % Initialize arrays to store compiled metrics
-    vel_corr_length_compiled = zeros(num_folders,1);
-    MSD_exponent_compiled = zeros(num_folders,1);
-    u_rms_compiled = zeros(num_folders, num_timepoints);
-    v_rms_compiled = zeros(num_folders, num_timepoints);
-    u_mag_rms_compiled = zeros(num_folders, num_timepoints);
+    vel_corr_length_compiled = nan(num_folders,1);
+    MSD_exponent_compiled = nan(num_folders,1);
+    u_rms_compiled = nan(num_folders, num_timepoints);
+    v_rms_compiled = nan(num_folders, num_timepoints);
+    u_mag_rms_compiled = nan(num_folders, num_timepoints);
 
     if (plot_radial==1)
         cellvel_data = load(RMS_cellvel_savename, 'u_rms', 'v_rms','u_mag_rms', "ur_rms", "ut_rms");
-        ur_rms_compiled = zeros(num_folders, num_timepoints);
-        ut_rms_compiled = zeros(num_folders, num_timepoints);
+        ur_rms_compiled = nan(num_folders, num_timepoints);
+        ut_rms_compiled = nan(num_folders, num_timepoints);
     end
     
     for k = 1:length(folderList)

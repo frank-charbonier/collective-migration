@@ -75,5 +75,7 @@ else
     colorbar;
 end
 
-print('-dpng','-r300',savename);
+print('-dpng','-r300', savename);
+print('-depsc','-r300', '-tiff', savename);
+close();
 

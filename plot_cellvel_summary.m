@@ -35,8 +35,8 @@ u_mag_rms = NaN(1,K);
 ur_rms = NaN(1,K);
 ut_rms = NaN(1,K);
 div_rms = NaN(1,K);
-% for k=1:K
-parfor k=1:K
+for k=1:K
+% parfor k=1:K
     % Load cell velocity for current frame
     u_cell_k = u_cell(:,:,k);
     v_cell_k = v_cell(:,:,k);

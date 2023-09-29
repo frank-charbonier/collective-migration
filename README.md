@@ -7,7 +7,7 @@
 Analysis code for research on collective cell migration
 
 ## Required repositories
-
+https://github.com/frank-charbonier/FIDIC
 
 https://github.com/frank-charbonier/Cell-Velocity-Analysis
 
@@ -19,6 +19,7 @@ https://github.com/frank-charbonier/load_config-MATLAB
 
 https://github.com/takuno7/saveastiff
 
+https://github.com/DrosteEffect/BrewerMap
 
 
 ## Files needed

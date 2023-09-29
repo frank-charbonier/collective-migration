@@ -52,7 +52,7 @@ if (run_multifolder_compilation)
 end
 
 %% Play sound when finished running
-load handel
-sound(y,Fs)
+% load handel
+% sound(y,Fs)
 
 clear

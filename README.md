@@ -21,6 +21,14 @@ https://github.com/takuno7/saveastiff
 
 https://github.com/DrosteEffect/BrewerMap
 
+## Required Matlab toolboxes
+
+Statistics and Machine Learning Toolbox
+
+Image Processing Toolbox
+
+Signal Processing Toolbox
+
 
 ## Files needed
 

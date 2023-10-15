@@ -11,13 +11,15 @@ function compile_displacement_metrics(bead_displacement_savename, displacement_s
     % celldisp(folderList);
 
     % Open first folder to get number of timepoints
-    % cd(baseFolder);
-    % cd(folderList{1});
-    % bead_disp_data = load(tract_results, 'u', 'v');
-    % num_timepoints = length(bead_disp_data.u_rms);
+    cd(baseFolder);
+    cd(folderList{1});
+    bead_disp_data = load(bead_displacement_savename, 'u', 'v');
+    num_timepoints = size(bead_disp_data.u,3);
 
     % Initialize arrays to store compiled metrics
-    bead_disp_compiled = nan(num_folders,1);
+    % bead_disp_compiled = nan(num_folders,1);
+    bead_disp_compiled = nan(num_folders,num_timepoints);
+
     % MSD_exponent_compiled = nan(num_folders,1);
     % u_rms_compiled = nan(num_folders, num_timepoints);
     % v_rms_compiled = nan(num_folders, num_timepoints);
@@ -32,11 +34,16 @@ function compile_displacement_metrics(bead_displacement_savename, displacement_s
         % bead_disp_compiled(k,1) = importdata('vel_corr_dist.txt');
 
         bead_disp_data = load(bead_displacement_savename, 'u', 'v');
-        u=bead_disp_data.u;
-        v=bead_disp_data.v;
+        % u=bead_disp_data.u;
+        % v=bead_disp_data.v;
+        for t = 1:num_timepoints
+            u = bead_disp_data.u(:,:,t);
+            v = bead_disp_data.v(:,:,t);
+            bead_disp_compiled(k,t) = mean(sqrt(u.^2+v.^2),"all");
+        end
         % bead_disp_compiled(k,:) = mean(sqrt(u(:,:,k).^2+v(:,:,k).^2),"all");
-        bead_disp_compiled(k,1) = mean(sqrt(u.^2+v.^2),"all");
-
+        % bead_disp_compiled(k,1) = mean(sqrt(u.^2+v.^2),"all");
+        bead_disp_compiled = sum(bead_disp_compiled,2);
         disp('Folder analysis complete');
     end
     

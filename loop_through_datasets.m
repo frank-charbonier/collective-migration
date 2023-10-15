@@ -52,7 +52,8 @@ if (run_multifolder_compilation)
 end
 
 % Added by Junqin
-% Compile bead displacement data
+% Compile bead displacement: the mean of all displacement in an image
+% Summed across all frames
 if (run_displacement_compilation)
     disp('Running multifolder compilation')
     bead_displacement_savename = 'tract_results.mat';

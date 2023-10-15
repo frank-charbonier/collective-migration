@@ -51,6 +51,18 @@ if (run_multifolder_compilation)
     disp('Multifolder compilation complete')
 end
 
+% Added by Junqin
+% Compile bead displacement data
+if (run_displacement_compilation)
+    disp('Running multifolder compilation')
+    bead_displacement_savename = 'tract_results.mat';
+    displacement_summary_savename = 'bead_disp_summary.mat';
+    compile_displacement_metrics(bead_displacement_savename, displacement_summary_savename);
+    disp('Multifolder compilation complete')
+end
+
+
+
 %% Play sound when finished running
 load handel
 sound(y,Fs)

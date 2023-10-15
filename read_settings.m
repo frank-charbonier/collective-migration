@@ -20,6 +20,7 @@ run_beads_FIDIC = analysis_config{'run_beads_FIDIC'};
 run_compute_tractions = analysis_config{'run_compute_tractions'};
 run_plot_tractions = analysis_config{'run_plot_tractions'};
 run_multifolder_compilation = analysis_config{'run_multifolder_compilation'};
+run_displacement_compilation = analysis_config{'run_displacement_compilation'};
 
 cellname = analysis_config{'cellname'};
 domainname = analysis_config{'domainname'};
